@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  div.container
+    div(class="mb-3 mt-3")
+      h1= title
+    if !result 
+      div(class="mb-3")
+        form(id="uploadForm" enctype="multipart/form-data")
+          label(for="formFile" class="form-label") Select a image and click Resize to upload 
+          input(class="form-control" type="file" id="image" accept="image/*")
+          button(type="submit" class="btn btn-primary mt-2" id="uploadBtn") Resize
+        
+    else
+      div(class="mb-3" )
+        h3 Resize sucessfully!
+        h4 #{urlFromS3}
+        button(type="button" class="btn btn-primary ") Click here to retrive
+
+  script( type="text/javascript" src='https://cdn.jsdelivr.net/npm/md5-js-tools@1.0.2/lib/md5.min.js')
+  script( type="text/javascript" src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js")
+  script( type="module" src='/javascripts/event.js')
+
+
+
+
+
